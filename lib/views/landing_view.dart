@@ -9,10 +9,12 @@ class LandingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView<LandingViewModel>(
       builder: (context, model, child) => Scaffold(
-        appBar: AppBar(
-          title: Text('App'),
-          backgroundColor: model.activeColor,
-        ),
+        appBar: model.activeTab != 1
+            ? AppBar(
+                title: Text(model.activeHeading),
+                backgroundColor: model.activeColor,
+              )
+            : null,
         body: model.activeBody,
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: model.activeTab,
