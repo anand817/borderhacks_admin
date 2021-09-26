@@ -1,5 +1,3 @@
-import 'package:borderhacks/viewmodels/home_viewmodel.dart';
-import 'package:borderhacks/views/base_view.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -7,8 +5,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseView<HomeViewModel>(
-      builder: (context, model, child) => Container(),
-    );
+    return Container();
   }
 }

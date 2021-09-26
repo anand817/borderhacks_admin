@@ -1,7 +1,9 @@
-import 'package:borderhacks/views/home_view.dart';
+import 'package:borderhacks/locator.dart';
+import 'package:borderhacks/views/landing_view.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  await setupLocator();
   runApp(MyApp());
 }
 
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Home(),
+      home: LandingView(),
     );
   }
 }
