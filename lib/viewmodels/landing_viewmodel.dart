@@ -1,6 +1,6 @@
 import 'package:borderhacks/viewmodels/base_viewmodel.dart';
-import 'package:borderhacks/views/home_view.dart';
-import 'package:borderhacks/views/profile_view.dart';
+import 'package:borderhacks/ui/views/home_view.dart';
+import 'package:borderhacks/ui/views/profile_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

@@ -1,5 +1,5 @@
 import 'package:borderhacks/viewmodels/landing_viewmodel.dart';
-import 'package:borderhacks/views/base_view.dart';
+import 'package:borderhacks/ui/views/base_view.dart';
 import 'package:flutter/material.dart';
 
 class LandingView extends StatelessWidget {
