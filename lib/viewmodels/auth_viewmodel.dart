@@ -30,7 +30,7 @@ class AuthViewModel extends BaseViewModel {
             .then(
           (value) {
             _localStorageService.isLoggedIn = true;
-            Get.offAndToNamed('/landing');
+            Get.offAndToNamed('/form');
           },
         );
       } else {
@@ -42,7 +42,7 @@ class AuthViewModel extends BaseViewModel {
             .then(
           (value) {
             _localStorageService.isLoggedIn = true;
-            Get.offAndToNamed('/landing');
+            Get.offAndToNamed('/form');
           },
         );
       }

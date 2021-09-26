@@ -1,5 +1,6 @@
 import 'package:borderhacks/locator.dart';
 import 'package:borderhacks/ui/views/auth_view.dart';
+import 'package:borderhacks/ui/views/input_form_view.dart';
 import 'package:borderhacks/ui/views/landing_view.dart';
 import 'package:borderhacks/ui/views/startup_view.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
           name: '/signup',
           page: () => const AuthView('Sign Up', 'Log In'),
         ),
+        GetPage(name: '/form', page: () => InputFormView()),
         GetPage(name: '/landing', page: () => LandingView()),
       ],
       home: StartUpView(),
