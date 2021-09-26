@@ -1,4 +1,4 @@
-import 'package:borderhacks/constants.dart';
+import 'package:borderhacks/constants/constants.dart';
 import 'package:borderhacks/locator.dart';
 import 'package:borderhacks/models/docter_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

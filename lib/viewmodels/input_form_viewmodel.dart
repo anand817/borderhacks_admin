@@ -63,7 +63,7 @@ class InputFormViewModel extends BaseViewModel {
     var info = Doctor(
       name: _nameController.text.trim(),
       address: _addressController.text.trim(),
-      fee: _appointmentfeeController.text.trim(),
+      fee: int.parse(_appointmentfeeController.text.trim()),
       qualification: _qualificationController.text.trim(),
       specialization: _specializationController.text.trim(),
       timing: '${DateFormat.jm().format(_from)}-${DateFormat.jm().format(_to)}',

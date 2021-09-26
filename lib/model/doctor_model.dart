@@ -1,5 +1,6 @@
 class Doctor {
-  String name, address, qualification, specialization, timing, fee;
+  String name, address, qualification, specialization, timing;
+  int fee;
 
   Doctor({
     required this.name,
