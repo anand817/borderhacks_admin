@@ -27,133 +27,135 @@ class InputFormView extends StatelessWidget {
     return BaseView<InputFormViewModel>(
       onModelReady: (model) => model.onModelReady(),
       onModelDestroy: (model) => model.onModelDestroy(),
-      builder: (context, model, child) => model.state == ViewState.Busy
-          ? Scaffold(
-              body: Center(
-                child: CircularProgressIndicator(),
-              ),
-            )
-          : Scaffold(
-              appBar: AppBar(
-                title: Center(
-                  child: Text('General Information'),
+      builder: (context, model, child) {
+        if (model.state == ViewState.Busy) {
+          return Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        }
+        return Scaffold(
+          appBar: AppBar(
+            title: Center(
+              child: Text('General Information'),
+            ),
+          ),
+          body: Form(
+            key: model.formKey,
+            child: ListView(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: CustomTextField(
+                    controller: model.nameController,
+                    label: 'Name',
+                    prefix: Icon(Icons.person),
+                    hint: 'Enter your Name',
+                    validator: model.validateTextField,
+                  ),
                 ),
-              ),
-              body: Form(
-                key: model.formKey,
-                child: ListView(
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: CustomTextField(
+                    controller: model.qualificationController,
+                    label: 'Qualification',
+                    prefix: Icon(Icons.school),
+                    hint: 'Enter your Qualification',
+                    validator: model.validateTextField,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: CustomTextField(
+                    controller: model.specializationController,
+                    label: 'Specialization',
+                    prefix: Icon(Icons.flag),
+                    hint: 'Enter your specialization',
+                    validator: model.validateTextField,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: CustomTextField(
+                    controller: model.appointmentfeeController,
+                    label: 'Appointment Fee',
+                    prefix: Icon(Icons.paid),
+                    validator: model.validateTextField,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                    'Timing: ',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+                Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: CustomTextField(
-                        controller: model.nameController,
-                        label: 'Name',
-                        prefix: Icon(Icons.person),
-                        hint: 'Enter your Name',
-                        validator: model.validateTextField,
-                      ),
+                    SizedBox(
+                      width: w / 10,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: CustomTextField(
-                        controller: model.qualificationController,
-                        label: 'Qualification',
-                        prefix: Icon(Icons.school),
-                        hint: 'Enter your Qualification',
-                        validator: model.validateTextField,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: CustomTextField(
-                        controller: model.specializationController,
-                        label: 'Specialization',
-                        prefix: Icon(Icons.flag),
-                        hint: 'Enter your specialization',
-                        validator: model.validateTextField,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: CustomTextField(
-                        controller: model.appointmentfeeController,
-                        label: 'Appointment Fee',
-                        prefix: Icon(Icons.paid),
-                        validator: model.validateTextField,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text(
-                        'Timing: ',
-                        style: TextStyle(
-                          fontSize: 18,
+                    SizedBox(
+                      width: w / 3,
+                      child: Card(
+                        child: ListTile(
+                          onTap: () => pickTime(model, model.from, 'from'),
+                          title: Text('From'),
+                          subtitle: Text(DateFormat.jm().format(model.from)),
                         ),
                       ),
                     ),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: w / 10,
-                        ),
-                        SizedBox(
-                          width: w / 3,
-                          child: Card(
-                            child: ListTile(
-                              onTap: () => pickTime(model, model.from, 'from'),
-                              title: Text('From'),
-                              subtitle:
-                                  Text(DateFormat.jm().format(model.from)),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: w / 3,
-                          child: Card(
-                            child: ListTile(
-                              onTap: () => pickTime(model, model.to, 'to'),
-                              title: Text('To'),
-                              subtitle: Text(DateFormat.jm().format(model.to)),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: CustomTextField(
-                        controller: model.addressController,
-                        label: 'Address',
-                        prefix: Icon(Icons.room),
-                        hint: 'Enter the clinic address',
-                        validator: model.validateTextField,
-                        maxlines: 3,
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: MaterialButton(
-                          onPressed: () async {
-                            if (model.formKey.currentState!.validate()) {
-                              await model.setInfo();
-                            }
-                          },
-                          color: Colors.blue,
-                          child: Text(
-                            'Submit',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
+                    SizedBox(
+                      width: w / 3,
+                      child: Card(
+                        child: ListTile(
+                          onTap: () => pickTime(model, model.to, 'to'),
+                          title: Text('To'),
+                          subtitle: Text(DateFormat.jm().format(model.to)),
                         ),
                       ),
                     ),
                   ],
                 ),
-              ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: CustomTextField(
+                    controller: model.addressController,
+                    label: 'Address',
+                    prefix: Icon(Icons.room),
+                    hint: 'Enter the clinic address',
+                    validator: model.validateTextField,
+                    maxlines: 3,
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: MaterialButton(
+                      onPressed: () async {
+                        if (model.formKey.currentState!.validate()) {
+                          await model.setInfo();
+                        }
+                      },
+                      color: Colors.blue,
+                      child: Text(
+                        'Submit',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
+          ),
+        );
+      },
     );
   }
 }

@@ -88,7 +88,23 @@ class ProfileView extends StatelessWidget {
             margin: EdgeInsets.only(top: 120),
             child: _buildProfileInfo(_model),
           ),
-        )
+        ),
+        Align(
+          alignment: Alignment.bottomRight,
+          child: MaterialButton(
+            onPressed: () => _model.signout(),
+            shape: CircleBorder(),
+            color: Colors.amber,
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Icon(
+                Icons.exit_to_app,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 10),
       ],
     );
   }
