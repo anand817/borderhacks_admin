@@ -1,12 +1,12 @@
+import 'package:borderhacks/ui/views/appointment_view.dart';
 import 'package:borderhacks/viewmodels/base_viewmodel.dart';
-import 'package:borderhacks/ui/views/home_view.dart';
 import 'package:borderhacks/ui/views/profile_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LandingViewModel extends BaseViewModel {
   final List<Widget> _views = [
-    HomeView(),
+    AppointmentView(),
     ProfileView(),
   ];
 
