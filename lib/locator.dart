@@ -26,8 +26,6 @@ Future<void> setupLocator() async {
   locator.registerSingleton<FirebaseFirestore>(_firebaseFirestore);
   locator.registerSingleton<FirebaseAuthService>(FirebaseAuthService());
   locator.registerSingleton<DoctorInfoService>(DoctorInfoService());
-
-  locator.registerSingleton<FirebaseAuthService>(FirebaseAuthService());
   locator.registerFactory<StartUpViewModel>(() => StartUpViewModel());
   locator.registerFactory<AuthViewModel>(() => AuthViewModel());
 

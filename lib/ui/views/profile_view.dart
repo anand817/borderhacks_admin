@@ -36,7 +36,7 @@ class ProfileView extends StatelessWidget {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           Text(
-            _model.specialisation,
+            _model.specialization,
             style: TextStyle(fontSize: 18),
           ),
         ],

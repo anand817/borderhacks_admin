@@ -1,6 +1,6 @@
 class Doctor {
   String name;
-  String specialisation;
+  String specialization;
   String timing;
   String address;
   String qualification;
@@ -8,7 +8,7 @@ class Doctor {
 
   Doctor({
     required this.name,
-    required this.specialisation,
+    required this.specialization,
     required this.timing,
     required this.address,
     required this.qualification,

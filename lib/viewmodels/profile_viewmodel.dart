@@ -26,7 +26,7 @@ class ProfileViewmodel extends BaseViewModel {
 
   String get name => profile.name;
   String get qualification => profile.qualification;
-  String get specialisation => profile.specialisation;
+  String get specialization => profile.specialization;
   String get address => profile.address;
   int get fees => profile.fees;
   String get timing => profile.timing;
